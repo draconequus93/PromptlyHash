@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">PromptlyHash logo</title>
+  <desc id="desc">A white hash symbol with a cyan verification spark on a navy rounded square.</desc>
+  <rect width="512" height="512" rx="116" fill="#17365D"/>
+  <path d="M185 126 159 386M315 126l-26 260M119 216h278M108 316h278"
+        fill="none" stroke="#FFFFFF" stroke-width="45" stroke-linecap="round"/>
+  <circle cx="382" cy="382" r="82" fill="#27C2D0"/>
+  <path d="m342 382 26 27 55-61" fill="none" stroke="#17365D"
+        stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

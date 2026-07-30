@@ -1,0 +1,13 @@
+<Project Sdk="WixToolset.Sdk/5.0.2">
+  <PropertyGroup>
+    <OutputName>PromptlyHash-Setup</OutputName>
+    <OutputType>Package</OutputType>
+    <Platform>x64</Platform>
+    <ProductVersion Condition="'$(ProductVersion)' == ''">1.0.0</ProductVersion>
+    <DefineConstants>ProductVersion=$(ProductVersion)</DefineConstants>
+    <PublishDirectory>$(MSBuildThisFileDirectory)..\artifacts\publish\win-x64</PublishDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <BindPath Include="$(PublishDirectory)" BindName="publish" />
+  </ItemGroup>
+</Project>

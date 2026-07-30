@@ -1,0 +1,70 @@
+name: Bug report
+description: Report reproducible incorrect behavior in PromptlyHash
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a problem. Do not include sensitive files, hashes, or security vulnerability details.
+
+  - type: input
+    id: version
+    attributes:
+      label: PromptlyHash version
+      placeholder: 1.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 24H2
+    validations:
+      required: true
+
+  - type: dropdown
+    id: distribution
+    attributes:
+      label: Distribution
+      options:
+        - MSI installer
+        - Standalone executable
+        - Built from source
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Open PromptlyHash
+        2. Select …
+        3. Observe …
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add screenshots or non-sensitive details if useful.
+
+  - type: checkboxes
+    id: security
+    attributes:
+      label: Security confirmation
+      options:
+        - label: This report does not disclose a security vulnerability.
+          required: true

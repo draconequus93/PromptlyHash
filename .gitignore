@@ -1,0 +1,62 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Aa]rtifacts/
+[Dd]ebug/
+[Rr]elease/
+[Pp]ublish/
+[Tt]est[Rr]esults/
+*.binlog
+*.nupkg
+*.snupkg
+
+# IDE and user state
+.vs/
+.vscode/
+.idea/
+_ReSharper*/
+*.DotSettings.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Analysis and coverage
+.scannerwork/
+[Cc]overage/
+coverage.*
+BenchmarkDotNet.Artifacts/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.cache
+*.pid
+*.bak
+*.swp
+~$*
+
+# OS metadata
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Local package caches
+.nuget/
+packages/
+node_modules/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+appsettings.*.local.json
+secrets.json
+*.pfx
+*.p12
+*.pem
+*.key
+*.snk
+*.cer

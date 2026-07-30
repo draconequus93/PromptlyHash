@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>PromptlyHash</AssemblyName>
+    <RootNamespace>PromptlyHash</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>Draconequus</Authors>
+    <Company>Draconequus</Company>
+    <Product>PromptlyHash</Product>
+    <Description>Generate and verify file checksums with confidence.</Description>
+    <Copyright>Copyright © 2026 Draconequus</Copyright>
+    <RepositoryUrl>https://github.com/draconequus93/PromptlyHash</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>..\..\assets\PromptlyHash.ico</ApplicationIcon>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="About.md" LogicalName="PromptlyHash.About.md" />
+  </ItemGroup>
+</Project>

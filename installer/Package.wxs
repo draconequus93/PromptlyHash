@@ -1,0 +1,30 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package
+    Name="PromptlyHash"
+    Manufacturer="Draconequus"
+    Version="$(var.ProductVersion)"
+    UpgradeCode="0FADCC85-596E-4E3A-A714-A40856509D85"
+    Scope="perMachine">
+    <MajorUpgrade DowngradeErrorMessage="A newer version of PromptlyHash is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="PromptlyHash">
+        <Component Id="ApplicationFiles" Guid="*">
+          <File Id="PromptlyHashExe" Source="!(bindpath.publish)\PromptlyHash.exe" KeyPath="yes">
+            <Shortcut
+              Id="StartMenuShortcut"
+              Directory="ProgramMenuFolder"
+              Name="PromptlyHash"
+              WorkingDirectory="INSTALLFOLDER"
+              Advertise="yes" />
+          </File>
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <Feature Id="MainFeature" Title="PromptlyHash" Level="1">
+      <ComponentRef Id="ApplicationFiles" />
+    </Feature>
+  </Package>
+</Wix>
