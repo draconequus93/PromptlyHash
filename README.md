@@ -44,6 +44,10 @@ Download the latest installer or standalone executable from [GitHub Releases](ht
 - `PromptlyHash.exe` is a standalone, self-contained 64-bit executable.
 - `SHA256SUMS.txt` contains checksums for both release files.
 
+Installed copies use the title `PromptlyHash - vX.Y.Z` in the application
+window, Start menu, installation folder, and Windows installed-app list so
+side-by-side versions are easy to distinguish.
+
 > [!IMPORTANT]
 > Public release files are currently unsigned. Windows SmartScreen may display a warning until code signing is configured. Verify downloads against `SHA256SUMS.txt`.
 

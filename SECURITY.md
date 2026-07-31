@@ -2,7 +2,8 @@
 
 ## Supported versions
 
-Before the first release, security fixes are applied to the default branch. After release, fixes are applied only to the latest published version.
+Security fixes are applied to the default branch and, when releases exist, to
+the latest published version. Older releases do not receive security updates.
 
 | Version | Supported |
 | --- | ---: |

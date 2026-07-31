@@ -46,6 +46,12 @@ Avoid unexplained security terminology and avoid implying that a matching checks
 
 ## Application naming
 
-Write the product name as **PromptlyHash**, without a space. The short description is:
+Write the base product name as **PromptlyHash**, without a space. Use the
+versioned form **PromptlyHash - vX.Y.Z** for installed application window
+titles, Start menu shortcuts, installation folders, and Windows installed-app
+entries. This distinguishes side-by-side installations without changing the
+product name.
+
+The short description is:
 
 > Generate and verify file checksums with confidence.
