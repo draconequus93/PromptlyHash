@@ -2,6 +2,9 @@ namespace PromptlyHash;
 
 public sealed class MainForm : Form
 {
+    private static readonly string DisplayVersion =
+        typeof(MainForm).Assembly.GetName().Version?.ToString(3) ?? "unknown";
+
     private readonly TextBox _filePath = new();
     private readonly Button _browseButton = new();
     private readonly ComboBox _algorithm = new();
@@ -35,7 +38,7 @@ public sealed class MainForm : Form
 
     public MainForm()
     {
-        Text = "PromptlyHash";
+        Text = $"PromptlyHash - v{DisplayVersion}";
         Icon = BrandLogo.CreateIcon();
         StartPosition = FormStartPosition.CenterScreen;
         MinimumSize = new Size(540, 480);

@@ -17,6 +17,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Markdown-backed About window
 - PromptlyHash logo and branding guide
 - Self-contained executable and MSI packaging
+- Installer upgrade choice with removal selected by default and safe side-by-side installation
+- Versioned application, installer, and Start menu titles
 - Automated hashing and responsive-layout checks
 
 ### Security

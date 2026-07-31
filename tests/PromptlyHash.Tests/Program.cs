@@ -72,6 +72,12 @@ internal static class Program
         form.Show();
         Application.DoEvents();
 
+        if (label == "standard")
+        {
+            var version = typeof(MainForm).Assembly.GetName().Version?.ToString(3) ?? "unknown";
+            Check("Window title includes version", form.Text == $"PromptlyHash - v{version}");
+        }
+
         var checkMode = GetField<RadioButton>(form, "_checkMode");
         checkMode.Checked = true;
         var showResult = typeof(MainForm).GetMethod("ShowResult", BindingFlags.Instance | BindingFlags.NonPublic)

@@ -3,11 +3,14 @@
     <OutputName>PromptlyHash-Setup</OutputName>
     <OutputType>Package</OutputType>
     <Platform>x64</Platform>
-    <ProductVersion Condition="'$(ProductVersion)' == ''">1.0.0</ProductVersion>
+    <ProductVersion Condition="'$(ProductVersion)' == ''">0.1.0</ProductVersion>
     <DefineConstants>ProductVersion=$(ProductVersion)</DefineConstants>
     <PublishDirectory>$(MSBuildThisFileDirectory)..\artifacts\publish\win-x64</PublishDirectory>
+    <!-- Intentional: the first public prerelease can replace higher-numbered test builds. -->
+    <SuppressIces>ICE61</SuppressIces>
   </PropertyGroup>
   <ItemGroup>
     <BindPath Include="$(PublishDirectory)" BindName="publish" />
+    <PackageReference Include="WixToolset.UI.wixext" Version="5.0.2" />
   </ItemGroup>
 </Project>

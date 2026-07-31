@@ -40,7 +40,7 @@ PromptlyHash is an open-source Windows 11 desktop application for generating and
 
 Download the latest installer or standalone executable from [GitHub Releases](https://github.com/draconequus93/PromptlyHash/releases).
 
-- `PromptlyHash-Setup.msi` installs PromptlyHash and adds a Start menu shortcut.
+- `PromptlyHash-Setup.msi` installs PromptlyHash and adds a versioned Start menu shortcut. If another PromptlyHash installation is detected, removing it is the default; users can instead keep both versions in separate installation folders.
 - `PromptlyHash.exe` is a standalone, self-contained 64-bit executable.
 - `SHA256SUMS.txt` contains checksums for both release files.
 

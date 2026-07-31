@@ -1,22 +1,34 @@
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix
+  xmlns="http://wixtoolset.org/schemas/v4/wxs"
+  xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
   <Package
-    Name="PromptlyHash"
+    Name="PromptlyHash - v$(var.ProductVersion)"
     Manufacturer="Draconequus"
     Version="$(var.ProductVersion)"
     UpgradeCode="0FADCC85-596E-4E3A-A714-A40856509D85"
     Scope="perMachine">
-    <MajorUpgrade DowngradeErrorMessage="A newer version of PromptlyHash is already installed." />
+    <Property Id="UPGRADE_ACTION" Value="remove" Secure="yes" />
+
+    <!-- Detect all related builds so v0.1.0 can also replace pre-release test
+         installers that used a higher placeholder version. -->
+    <Upgrade Id="0FADCC85-596E-4E3A-A714-A40856509D85">
+      <UpgradeVersion
+        Minimum="0.0.0"
+        IncludeMinimum="yes"
+        Property="PROMPTLYHASH_RELATED_PRODUCTS" />
+    </Upgrade>
+
     <MediaTemplate EmbedCab="yes" />
     <Icon Id="PromptlyHash.exe" SourceFile="!(bindpath.publish)\PromptlyHash.exe" />
 
     <StandardDirectory Id="ProgramFiles6432Folder">
-      <Directory Id="INSTALLFOLDER" Name="PromptlyHash">
+      <Directory Id="INSTALLFOLDER" Name="PromptlyHash v$(var.ProductVersion)">
         <Component Id="ApplicationFiles" Guid="*">
           <File Id="PromptlyHashExe" Source="!(bindpath.publish)\PromptlyHash.exe" KeyPath="yes">
             <Shortcut
               Id="StartMenuShortcut"
               Directory="ProgramMenuFolder"
-              Name="PromptlyHash"
+              Name="PromptlyHash - v$(var.ProductVersion)"
               WorkingDirectory="INSTALLFOLDER"
               Icon="PromptlyHash.exe"
               Advertise="yes" />
@@ -28,5 +40,110 @@
     <Feature Id="MainFeature" Title="PromptlyHash" Level="1">
       <ComponentRef Id="ApplicationFiles" />
     </Feature>
+
+    <InstallExecuteSequence>
+      <!-- Full-UI installs can opt into side-by-side installation. Quiet
+           installs retain the default "remove" property value. -->
+      <RemoveExistingProducts
+        After="InstallInitialize"
+        Condition="UPGRADE_ACTION &lt;&gt; &quot;keep&quot;" />
+    </InstallExecuteSequence>
+
+    <UI>
+      <ui:WixUI Id="WixUI_Minimal" />
+      <TextStyle Id="InstallerTitleFont" FaceName="Segoe UI" Size="14" Bold="yes" />
+
+      <Dialog
+        Id="UpgradeChoiceDlg"
+        Width="370"
+        Height="230"
+        Title="[ProductName] Setup"
+        NoMinimize="yes">
+        <Control
+          Id="Title"
+          Type="Text"
+          X="20"
+          Y="18"
+          Width="330"
+          Height="24"
+          Transparent="yes"
+          NoPrefix="yes"
+          Text="{\InstallerTitleFont}Existing installation detected" />
+        <Control
+          Id="Description"
+          Type="Text"
+          X="20"
+          Y="50"
+          Width="330"
+          Height="32"
+          NoPrefix="yes"
+          Text="Choose what Setup should do with the installed version of PromptlyHash." />
+        <Control
+          Id="UpgradeAction"
+          Type="RadioButtonGroup"
+          X="30"
+          Y="91"
+          Width="320"
+          Height="62"
+          Property="UPGRADE_ACTION">
+          <RadioButtonGroup Property="UPGRADE_ACTION">
+            <RadioButton
+              Value="remove"
+              X="0"
+              Y="0"
+              Width="315"
+              Height="18"
+              Text="Remove the installed version and install [ProductName] (recommended)" />
+            <RadioButton
+              Value="keep"
+              X="0"
+              Y="32"
+              Width="315"
+              Height="18"
+              Text="Keep the installed version and install [ProductName] alongside it" />
+          </RadioButtonGroup>
+        </Control>
+        <Control
+          Id="Explanation"
+          Type="Text"
+          X="20"
+          Y="160"
+          Width="330"
+          Height="24"
+          NoPrefix="yes"
+          Text="Keeping both versions uses separate installation folders and Start-menu shortcuts." />
+        <Control
+          Id="Continue"
+          Type="PushButton"
+          X="240"
+          Y="198"
+          Width="56"
+          Height="17"
+          Default="yes"
+          Text="Continue">
+          <Publish Event="EndDialog" Value="Return" />
+        </Control>
+        <Control
+          Id="Cancel"
+          Type="PushButton"
+          X="304"
+          Y="198"
+          Width="56"
+          Height="17"
+          Cancel="yes"
+          Text="Cancel">
+          <Publish Event="EndDialog" Value="Exit" />
+        </Control>
+      </Dialog>
+
+      <InstallUISequence>
+        <Show
+          Dialog="UpgradeChoiceDlg"
+          After="FindRelatedProducts"
+          Condition="PROMPTLYHASH_RELATED_PRODUCTS AND NOT Installed" />
+      </InstallUISequence>
+    </UI>
+
+    <WixVariable Id="WixUILicenseRtf" Value="$(sys.SOURCEFILEDIR)License.rtf" />
   </Package>
 </Wix>
