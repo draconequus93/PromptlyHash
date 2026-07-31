@@ -1,7 +1,7 @@
 param(
     [switch]$Msi,
     [ValidatePattern('^\d+\.\d+\.\d+$')]
-    [string]$Version = "1.0.0"
+    [string]$Version = "0.1.0"
 )
 
 $ErrorActionPreference = "Stop"

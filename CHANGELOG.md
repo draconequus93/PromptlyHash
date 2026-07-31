@@ -6,6 +6,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-07-31
+
 ### Added
 
 - Windows 11 desktop interface for generating and checking file hashes
@@ -15,6 +17,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Markdown-backed About window
 - PromptlyHash logo and branding guide
 - Self-contained executable and MSI packaging
+- Installer upgrade choice with removal selected by default and safe side-by-side installation
+- Versioned application, installer, and Start menu titles
 - Automated hashing and responsive-layout checks
 
 ### Security
@@ -24,4 +28,5 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Enabled transitive NuGet vulnerability auditing
 - Pinned GitHub Actions to immutable release commits
 
-[Unreleased]: https://github.com/draconequus93/PromptlyHash/commits/HEAD
+[Unreleased]: https://github.com/draconequus93/PromptlyHash/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/draconequus93/PromptlyHash/releases/tag/v0.1.0
