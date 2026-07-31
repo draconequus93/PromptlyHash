@@ -6,6 +6,10 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Added WinGet package manifests and publishing instructions.
+
 ## [0.1.0] - 2026-07-31
 
 ### Added
