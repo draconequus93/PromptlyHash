@@ -7,6 +7,7 @@
     Scope="perMachine">
     <MajorUpgrade DowngradeErrorMessage="A newer version of PromptlyHash is already installed." />
     <MediaTemplate EmbedCab="yes" />
+    <Icon Id="PromptlyHash.exe" SourceFile="!(bindpath.publish)\PromptlyHash.exe" />
 
     <StandardDirectory Id="ProgramFiles6432Folder">
       <Directory Id="INSTALLFOLDER" Name="PromptlyHash">
@@ -17,6 +18,7 @@
               Directory="ProgramMenuFolder"
               Name="PromptlyHash"
               WorkingDirectory="INSTALLFOLDER"
+              Icon="PromptlyHash.exe"
               Advertise="yes" />
           </File>
         </Component>
